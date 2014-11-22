@@ -4,6 +4,8 @@ from flask import make_response
 from flask import request
 
 import os
+import smtplib
+import json
 
 app = Flask(__name__)
 
@@ -25,6 +27,19 @@ months = {'January':1, 'Feburary':2, 'March':3, 'April':4, 'May':5,
 @app.route("/")
 def hello():
     return render_template('index.html')
+
+@app.route("/feedback", methods=['POST'])
+def feedback():
+    data = json.loads(request.form['json'])
+
+    email = data['email']
+    msg = data['message']
+    content = 'Feedback from %s with message: %s' % (email, msg)
+    
+    recipients = ['jendrik@madewithtea.com','pczek@gmail.com']
+    s = smtplib.SMTP('localhost')
+    s.sendmail('papercalendar', recipients, content)
+    s.quit()
 
 @app.route("/download", methods=['POST'])
 def download():
