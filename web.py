@@ -46,11 +46,13 @@ def download():
 
     locale = languages[request.form['language']]
     month = months[request.form['startmonth']]
-    out = 'generated/papr_%s%s.pdf' % (month, locale)
+    year = str(int(request.form['year']))
+
+    out = 'generated/papr_%s%s%s.pdf' % (month, year, locale)
 
     # generate
-    options = (locale, month, out)
-    os.system('python papr.py -l %s -m %s -o %s' % options)
+    options = (locale, month, out, year)
+    os.system('python papr/papr/papr.py -l %s -m %s -o %s -y %s' % options)
 
     # serve
     hnd = open(out,'rb')

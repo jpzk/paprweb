@@ -1,0 +1,3 @@
+[submodule "papr"]
+	path = papr
+	url = https://github.com/Pczek/papr.git
