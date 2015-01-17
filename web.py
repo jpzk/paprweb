@@ -36,7 +36,7 @@ def feedback():
     msg = data['message']
     content = 'Feedback from %s with message: %s' % (email, msg)
     
-    recipients = ['jendrik@madewithtea.com','pczek@gmail.com']
+    recipients = ['jendrik@madewithtea.com','phil.czek@gmail.com']
     s = smtplib.SMTP('localhost')
     s.sendmail('papercalendar', recipients, content)
     s.quit()
