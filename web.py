@@ -35,7 +35,7 @@ def feedback():
     email = data['email']
     msg = data['message']
     content = 'Feedback from %s with message: %s' % (email, msg)
-    
+
     recipients = ['jendrik@madewithtea.com','phil.czek@gmail.com']
     s = smtplib.SMTP('localhost')
     s.sendmail('papercalendar', recipients, content)
@@ -53,7 +53,7 @@ def download():
 
     # generate
     options = (locale, month, out, year, paper)
-    os.system('python papr/papr/papr.py -l %s -m %s -o %s -y %s -p %s' % options)
+    os.system('python papr/papr/papr.py -l %s -m %s -o %s -y %s -p %s -A -f Merriweather' % options)
 
     # serve
     hnd = open(out,'rb')
