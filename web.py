@@ -48,12 +48,13 @@ def download():
     month = months[request.form['startmonth']]
     year = str(int(request.form['year']))
     paper = str(request.form['papersize'])
+    margin = str(int(request.form['margin']))
 
-    out = 'generated/papr_%s%s%s%s.pdf' % (month, year, locale, paper)
+    out = 'generated/papr_%s%s%s%s%s.pdf' % (month, year, locale, paper, margin)
 
     # generate
-    options = (locale, month, out, year, paper)
-    os.system('python papr/papr/papr.py -l %s -m %s -o %s -y %s -p %s -A -f Merriweather' % options)
+    options = (locale, month, out, year, paper, margin)
+    os.system('python papr/papr/papr.py -l %s -m %s -o %s -y %s -p %s -A -f Merriweather --margin=%s' % options)
 
     # serve
     hnd = open(out,'rb')

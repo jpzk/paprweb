@@ -58,6 +58,7 @@
             <ul>
                 <li onclick="$.smoothScroll({scrollTarget: $('#layout')});"><a href="#">What?!</a></li>
                 <li onclick="$.smoothScroll({scrollTarget: $('#download')});"><a href="#">Download</a></li>
+                <li onclick="$.smoothScroll({scrollTarget: $('#printing')});"><a href="#">Printing</a></li>
                 <li onclick="$.smoothScroll({scrollTarget: $('#feedback')});"><a href="#">Feedback</a></li>
                 <li onclick="$.smoothScroll({scrollTarget: $('#about')});"><a href="#">About</a></li>
             </ul>
@@ -147,6 +148,14 @@
                     <option>USLetter</option>
                </select>
             </div>
+            <div class="pure-u-1 pure-u-md-1-3">
+                <label for="margin">Page Margin (in Millimeters)</label>
+                <select id="margin" name="margin" class="pure-input-1-2">
+                    <option>5</option>
+                    <option>8</option>
+                    <option>10</option>
+               </select>
+            </div>
        </div>
 
         <label for="terms" class="pure-checkbox">
@@ -160,6 +169,15 @@
 </form>
 
     </p>
+
+    <h2 class="content-subhead" id="feedback">Printing</h2>
+    	<p>
+				Most of us have a from the shelf A4 printer at home, those printers are not able to print on the whole sheet of paper. They most often leave out a margin of 5mm and maybe even more on all four sides. Therefore you can change the margin of the calendar in the form above to adapt to your printer.
+
+				Also make sure you disable scaling and fitting options in the print menu!
+
+				</br>PROTIP: Use a more expensive printer at your school/university or at work.
+		  </p>
 
     <h2 class="content-subhead" id="feedback">Feedback</h2>
             <p>
